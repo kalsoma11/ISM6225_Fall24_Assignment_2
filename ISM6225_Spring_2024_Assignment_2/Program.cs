@@ -62,8 +62,16 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return new List<int>(); // Placeholder
+                var numbers = new List<int>();
+            var numSet = new HashSet<int>(nums);
+            for (int i = 1; i <= nums.Length; i++)
+            {
+                if (!numSet.Contains(i))
+                {
+                    numbers.Add(i);
+                }
+            }
+            return numbers;
             }
             catch (Exception)
             {
@@ -76,8 +84,23 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return new int[0]; // Placeholder
+                List<int> EvenList = new List<int>();
+            List<int> OddList = new List<int>();
+
+            foreach (var num in nums)
+            {
+                if (num % 2 == 0)
+                {
+                    EvenList.Add(num);
+                }
+                else
+                {
+                    OddList.Add(num);
+                }
+            }
+
+            EvenList.AddRange(OddList);
+            return EvenList.ToArray();
             }
             catch (Exception)
             {
@@ -90,8 +113,18 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return new int[0]; // Placeholder
+                var numberdictionary = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int complement = target - nums[i];
+                if (numberdictionary.ContainsKey(complement))
+                {
+                    return new int[] { numberdictionary[complement], i };
+                }
+                numberdictionary[nums[i]] = i;
+            }
+            throw new ArgumentException("No two sum solution");
             }
             catch (Exception)
             {
@@ -104,8 +137,9 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return 0; // Placeholder
+                Array.Sort(nums);
+            return Math.Max(nums[0] * nums[1] * nums[nums.Length - 1], 
+                            nums[nums.Length - 1] * nums[nums.Length - 2] * nums[nums.Length - 3]);
             }
             catch (Exception)
             {
@@ -118,8 +152,7 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return "101010"; // Placeholder
+                return Convert.ToString(decimalNumber, 2);
             }
             catch (Exception)
             {
@@ -132,8 +165,20 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return 0; // Placeholder
+                int l = 0, r = nums.Length - 1;
+            while (l < r)
+            {
+                int m = l + (r - l) / 2;
+                if (nums[m] > nums[r])
+                {
+                    l = m + 1;
+                }
+                else
+                {
+                    r = m;
+                }
+            }
+            return nums[l];
             }
             catch (Exception)
             {
@@ -146,8 +191,14 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return false; // Placeholder
+                if (x < 0) return false; // Negative numbers are not palindromes
+            int orig = x, rev = 0;
+            while (x > 0)
+            {
+                rev = rev * 10 + x % 10;
+                x /= 10;
+            }
+            return orig == rev;
             }
             catch (Exception)
             {
@@ -160,8 +211,15 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return 0; // Placeholder
+                if (n <= 1) return n;
+            int a = 0, b = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                int temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return b;
             }
             catch (Exception)
             {
