@@ -62,7 +62,8 @@ namespace Assignment_2
         {
             try
             {
-                var numbers = new List<int>();
+            // Initializing variables    
+            var numbers = new List<int>();
             var numSet = new HashSet<int>(nums);
             for (int i = 1; i <= nums.Length; i++)
             {
@@ -84,9 +85,10 @@ namespace Assignment_2
         {
             try
             {
-                List<int> EvenList = new List<int>();
+            // Initializing variables      
+            List<int> EvenList = new List<int>();
             List<int> OddList = new List<int>();
-
+            // Looping through array
             foreach (var num in nums)
             {
                 if (num % 2 == 0)
@@ -114,7 +116,7 @@ namespace Assignment_2
             try
             {
                 var numberdictionary = new Dictionary<int, int>();
-
+            // Looping through array
             for (int i = 0; i < nums.Length; i++)
             {
                 int complement = target - nums[i];
@@ -137,6 +139,7 @@ namespace Assignment_2
         {
             try
             {
+            // Sorting the array        
                 Array.Sort(nums);
             return Math.Max(nums[0] * nums[1] * nums[nums.Length - 1], 
                             nums[nums.Length - 1] * nums[nums.Length - 2] * nums[nums.Length - 3]);
@@ -152,6 +155,7 @@ namespace Assignment_2
         {
             try
             {
+                //Converting decimal to binary conversion
                 return Convert.ToString(decimalNumber, 2);
             }
             catch (Exception)
@@ -165,6 +169,7 @@ namespace Assignment_2
         {
             try
             {
+                //Initialzing variables
                 int l = 0, r = nums.Length - 1;
             while (l < r)
             {
@@ -190,8 +195,8 @@ namespace Assignment_2
         public static bool IsPalindrome(int x)
         {
             try
-            {
-                if (x < 0) return false; // Negative numbers are not palindromes
+            {   
+            if (x < 0) return false; // Negative numbers are not palindromes
             int orig = x, rev = 0;
             while (x > 0)
             {
@@ -213,6 +218,7 @@ namespace Assignment_2
             {
                 if (n <= 1) return n;
             int a = 0, b = 1;
+            // Swapping numbers
             for (int i = 2; i <= n; i++)
             {
                 int temp = a + b;
